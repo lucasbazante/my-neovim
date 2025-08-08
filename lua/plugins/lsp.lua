@@ -131,21 +131,9 @@ return {
             },
           },
         },
-
-	nil_ls = {
-		settings = {
-			['nil'] = {
-				formatting = {
-					command = { 'alejandra' },
-				}
-			}
-		}
-	},
       }
 
-      local ensure_installed = vim.iter(vim.tbl_keys(servers))
-  	:filter(function(server) return server ~= "lua_ls" end)
-  	:totable()
+      local ensure_installed = vim.tbl_keys(servers or {})
       vim.list_extend(ensure_installed, {
         'stylua', -- Lua formatter
       })
