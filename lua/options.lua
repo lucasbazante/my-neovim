@@ -61,7 +61,7 @@ vim.o.scrolloff = 10
 vim.o.confirm = true
 
 -- Enable and configure folds
-vim.o.foldmethod = "indent"
+vim.o.foldmethod = 'indent'
 vim.o.foldenable = true
 
 -- Indentation configuration

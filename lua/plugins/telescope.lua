@@ -7,11 +7,13 @@ return { -- Fuzzy Finder (files, lsp, etc)
     {
       'nvim-telescope/telescope-fzf-native.nvim',
       build = 'make',
-      cond = function() return vim.fn.executable 'make' == 1 end,
+      cond = function()
+        return vim.fn.executable 'make' == 1
+      end,
     },
 
     { 'nvim-telescope/telescope-ui-select.nvim' },
-    
+
     -- Nice icons.
     { 'nvim-tree/nvim-web-devicons', enabled = vim.g.have_nerd_font },
   },
@@ -46,26 +48,23 @@ return { -- Fuzzy Finder (files, lsp, etc)
 
     -- Search on current buffer.
     keymap('n', '<leader>/', function()
-        builtin.current_buffer_fuzzy_find(require('telescope.themes').get_dropdown {
-          winblend = 10,
-          previewer = false,
-        })
-      end, { desc = '[/] Fuzzily search in current buffer' }
-    )
+      builtin.current_buffer_fuzzy_find(require('telescope.themes').get_dropdown {
+        winblend = 10,
+        previewer = false,
+      })
+    end, { desc = '[/] Fuzzily search in current buffer' })
 
     -- Search open files.
     keymap('n', '<leader>s/', function()
-        builtin.live_grep {
-          grep_open_files = true,
-          prompt_title = 'Live Grep in Open Files',
-        }
-      end, { desc = '[S]earch [/] in Open Files' }
-    )
+      builtin.live_grep {
+        grep_open_files = true,
+        prompt_title = 'Live Grep in Open Files',
+      }
+    end, { desc = '[S]earch [/] in Open Files' })
 
     -- Shortcut for searching Neovim configuration files.
     keymap('n', '<leader>sn', function()
-        builtin.find_files { cwd = vim.fn.stdpath 'config' }
-      end, { desc = '[S]earch [N]eovim files' }
-    )
-   end,
+      builtin.find_files { cwd = vim.fn.stdpath 'config' }
+    end, { desc = '[S]earch [N]eovim files' })
+  end,
 }

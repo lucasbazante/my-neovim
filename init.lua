@@ -3,13 +3,13 @@
 -- ===============================
 
 -- Load general Vim options (e.g. vim.opt.*)
-require('options')
+require 'options'
 
 -- Load general keymaps (not plugin-specific)
-require('keymaps')
+require 'keymaps'
 
 -- Load autocmds (like yank highlight, etc.)
-require('autocmds')
+require 'autocmds'
 
 -- Load plugin manager and all plugin modules
-require('lazy_plugins')
+require 'lazy_plugins'
